@@ -1,12 +1,16 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../login.html');
+    exit();
+}
 
 $usuario = $_POST['usuario'] ?? '';
 $contrasena = $_POST['contrasena'] ?? '';
 
 if ($usuario === 'admin_sur' && $contrasena === 'admin_sur') {
-    $_SESSION['autenticado'] = true;
-    header('Location: ../index.html');
+    $_SESSION['usuario'] = usuario;
+    header('Location: ..../pages/index.html');
     exit;
 } else {
     echo "<script>
