@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header('Location: ../login.html');
+    header('Location: ../login.php');
     exit();
 }
 ?>
@@ -17,13 +17,13 @@ if (!isset($_SESSION['usuario'])) {
   <body class="body-opcion">
     <h1 class="h1-accion">Seleccionar Acción</h1>
     <div class="button-opcion">
-      <button onclick="window.location.href='agregar.html'">
+      <button onclick="window.location.href='agregar.php'">
         Agregar Equipo Fiscalía
       </button>
-      <button onclick="window.location.href='agregar_prov.html'">
+      <button onclick="window.location.href='agregar_prov.php'">
         Agregar Equipo Proveedor
       </button>
-      <button onclick="window.location.href='../index.html'">Volver</button>
+      <button onclick="window.location.href='../index.php'">Volver</button>
     </div>
   </body>
 </html>

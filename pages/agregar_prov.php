@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header('Location: ../login.html');
+    header('Location: ../login.php');
     exit();
 }
 ?>
@@ -179,7 +179,7 @@ if (!isset($_SESSION['usuario'])) {
       </div>
 
       <div class="button-container">
-        <button id="volver" onclick="window.location.href='../index.html'">
+        <button id="volver" onclick="window.location.href='../index.php'">
           Volver
         </button>
         <button type="submit">Guardar</button>

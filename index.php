@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION['usuario'])) {
+    header('Location: pages/agregar.php');
+} else {
+    header('Location: login.html');
+}
+exit();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,14 +54,14 @@
           <button
             id="agregarProducto"
             type="button"
-            onclick="window.location.href='./pages/agregar_opcion.html'"
+            onclick="window.location.href='./pages/agregar_opcion.php'"
           >
             Agregar Equipo
           </button>
           <button
             id="modificarProducto"
             type="button"
-            onclick="window.location.href='./pages/modificar.html'"
+            onclick="window.location.href='./pages/modificar.php'"
           >
             Modificar Equipo
           </button>

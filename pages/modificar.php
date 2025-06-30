@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header('Location: ../login.html');
+    header('Location: ../login.php');
     exit();
 }
 ?>
@@ -37,7 +37,7 @@ if (!isset($_SESSION['usuario'])) {
         </button>
 
         <button id="volver" class="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-        onclick="window.location.href='../index.html'"
+        onclick="window.location.href='../index.php'"
       
         >
           Volver

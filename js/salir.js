@@ -1,4 +1,3 @@
-
 document.getElementById("salirSistema").addEventListener("click", () => {
   Swal.fire({
     title: '¿Estás seguro?',
