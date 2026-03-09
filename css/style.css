@@ -18,20 +18,29 @@ html {
   font-family: fuente2;
   src: url("../assets/fonts/MerriweatherSans.ttf");
 }
+
 header {
-  width: auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
 }
-
 .logo {
-  width: 100%;
-  text-align: center;
+  display: flex;
+  align-items: center;
 }
 .logo img {
-  width: 5rem;
+  width: 100%; 
+  max-width: 20rem;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease; 
 }
+.logo img:hover {
+  transform: scale(1.05);
+}
+
 
 /* TITULO */
 
@@ -140,21 +149,32 @@ header {
   grid-row: 2/3;
 }
 
-
 .ingreso button:active {
   transform: scale(1.1);
   filter: drop-shadow(3px 3px 3px gray);
 }
 
+.ingreso button:hover {
+ transform: scale(1.05);
+}
+
+/* FOOTER */
+
 footer {
   width: 100%;
   background-color: rgb(24, 45, 152);
+  padding: 2rem 0;
+  border-top: 4px solid #d32f2f;
+  margin-top: auto; 
 }
 footer p {
   color: white;
   font-family: fuente2;
   font-size: 1rem;
   text-align: center;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
 }
 
 /* INGRESO EQUIPOS */
@@ -311,6 +331,49 @@ button:hover {
 
 /***** RESPONSIVO ******/
 
+/* --- Monitores Ultrawide (2560 x 1080) --- */
+@media (min-width: 1441px) {
+  .principal {
+    grid-template-rows: repeat(2, 12rem);
+    grid-template-columns: repeat(4, 20rem);
+  }
+  .titulo h1,
+  .titulo h2 {
+    font-size: 4rem;
+  }
+  .ingreso {
+    gap: 3rem 4rem;
+    margin: 20rem 0 5rem 0;
+    grid-template-columns: repeat(2, 25rem);
+    grid-template-rows: repeat(2, 12rem);
+  }
+  .ingreso button {
+    font-size: 2rem;
+    padding-left: 8rem;
+  }
+  footer p {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- Laptops / Desktops estándar --- */
+@media (max-width: 1448px) {
+  .logo img {
+    max-width: 23rem;
+  }
+  .principal {
+    grid-template-rows: repeat(2, 10rem);
+    grid-template-columns: repeat(4, 12rem);
+  }
+  .titulo h1,
+  .titulo h2 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 1440px) {
   .principal {
     grid-template-rows: repeat(2, 10rem);
@@ -339,21 +402,7 @@ button:hover {
   }
 }
 
-@media (max-width: 1448) {
-  .principal {
-    grid-template-rows: repeat(2, 10rem);
-    grid-template-columns: repeat(4, 12rem);
-  }
-  .titulo h1,
-  .titulo h2 {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 1rem;
-  }
-}
-
-
+/* --- Tablets y pantallas medianas --- */
 @media (max-width: 906px) {
   .principal {
     grid-template-rows: repeat(2, 8rem);
@@ -362,9 +411,6 @@ button:hover {
   .titulo h1,
   .titulo h2 {
     font-size: 3rem;
-  }
-  h2 {
-    font-size: 1rem;
   }
 }
 
@@ -396,6 +442,7 @@ button:hover {
   }
 }
 
+/* --- Smartphones --- */
 @media (max-width: 320px) {
   .principal {
     grid-template-rows: repeat(2, 1rem);
@@ -404,9 +451,6 @@ button:hover {
   .titulo h1,
   .titulo h2 {
     font-size: 1.1rem;
-  }
-  h2 {
-    font-size: 1rem;
   }
   .ingreso {
     gap: 1rem 1rem;
@@ -417,9 +461,5 @@ button:hover {
   .ingreso button {
     font-size: 0.8rem;
     padding-left: 3rem;
-  }
-  footer p {
-    font-size: 0.8rem;
-    padding: 2%;
   }
 }

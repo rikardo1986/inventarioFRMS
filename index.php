@@ -93,12 +93,9 @@ if (!isset($_SESSION['usuario'])) {
     </main>
     <footer>
       <p>
-        Este sitio web ha sido desarrollado y mantenido por el equipo de Soporte
-        Informático y Desarrollo. Si tiene alguna sugerencia, comentario o
-        reclamo, le invitamos a comunicarse con nosotros a través de la sección
-        de Contacto. También puede enviarnos un mensaje directamente a nuestro
-        correo electrónico: soporte@minpublico.cl. Agradecemos su colaboración
-        para ayudarnos a mejorar continuamente nuestros servicios.
+        Este sitio web ha sido desarrollado y mantenido por el equipo de Soporte Informático y Desarrollo de la Fiscalia Sur. 
+        Si tiene alguna sugerencia, comentario o reclamo, puede enviarnos un mensaje directamente a nuestro correo electrónico: 
+        soporte@minpublico.cl.
       </p>
     </footer>
 
