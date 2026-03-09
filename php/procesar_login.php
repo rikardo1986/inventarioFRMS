@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'conexion.php';
 
 try {
@@ -18,16 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([':usuario' => $usuario]);
         $usuarioData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($usuarioData && password_verify($contrasena, $usuarioData['contrasena'])) {
+        if ($usuarioData && $contrasena === $usuarioData['contrasena']) {
             $_SESSION['usuario'] = $usuario;
-            header("Location: dashboard.php");
-            exit;
+            header("Location: ../index.php");
+            exit();
         } else {
-            echo "<p>Usuario o contraseña incorrectos. <a href='login.html'>Intenta de nuevo</a></p>";
+            echo "<p>Usuario o contraseña incorrectos. <a href='../login.html'>Intenta de nuevo</a></p>";
         }
     } catch (PDOException $e) {
         echo "<p>Error al iniciar sesión: " . $e->getMessage() . "</p>";
-        echo "<p><a href='login.html'>Volver al inicio de sesión</a></p>";
+        echo "<p><a href='../login.html'>Volver al inicio de sesión</a></p>";
     }
 }
 ?>

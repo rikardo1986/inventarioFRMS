@@ -46,15 +46,17 @@ require_once 'conexion.php';
             echo "       
             <div style='font-family: sans-serif; text-align: center; margin-top: 50px;'>
             <h2 style='color: green;'>Producto guardado exitosamente.</h2>
-            <a href='../pages/agregar.html' 
+            <a href='../pages/agregar.php' 
             style='display: inline-block; margin-top: 20px; padding: 10px 20px; background-color:rgb(248, 117, 22) color: white; text-decoration: none; border-radius: 5px;'>
             Volver al formulario
             </a>
             </div>
             ";
-        } catch (PDOException $e) {
-            echo "❌ Error al guardar el producto: " . $e->getMessage();
-        }
+    } catch (PDOException $e) {
+        echo "Error al guardar el producto: " . $e->getMessage();
+    }
+} else {
+    echo "Acceso no permitido.";
 }
 ?>
 

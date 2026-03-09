@@ -1,12 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION['usuario'])) {
-    header('Location: pages/agregar.php');
-} else {
+if (!isset($_SESSION['usuario'])) {
     header('Location: login.html');
+    exit();
 }
-exit();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

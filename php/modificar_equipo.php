@@ -26,15 +26,15 @@ $funcionario = $_POST['funcionario'] ?? '';
 $edificio = $_POST['edificio'] ?? '';
 $unidadFL = $_POST['unidadFL'] ?? $_POST['unidad_fl'] ?? '';
 $piso = $_POST['piso'] ?? '';
-$fechaAsignacion = $_POST['fechaAsignacion'] ?? $_POST['fecha_asignacion'] ?? null;
-$fechaBaja = $_POST['fechaBaja'] ?? $_POST['fecha_baja'] ?? null;
+$fechaAsignacion = (!empty($_POST['fechaAsignacion'])) ? $_POST['fechaAsignacion'] : ( (!empty($_POST['fecha_asignacion'])) ? $_POST['fecha_asignacion'] : null );
+$fechaBaja = (!empty($_POST['fechaBaja'])) ? $_POST['fechaBaja'] : ( (!empty($_POST['fecha_baja'])) ? $_POST['fecha_baja'] : null );
 $descripcion = $_POST['descripcion'] ?? '';
 
 try {
     if ($origen === 'productos_prov') {
         $query = "UPDATE $origen SET estado=?, asignado=?, usuario=?, funcionario=?, edificio=?, unidad_fl=?, piso=?, fecha_asignacion=?, fecha_baja=?, descripcion=? WHERE id=?";
         $stmt = $pdo_inv->prepare($query);
-        $stmt->execute([$estado, $asignado, $usuario, $funcionario, $edificio, $unidadFL, $piso, $fechaAsignacion, $fechaBaja, $descripcion, $funcionario, $id]);
+        $stmt->execute([$estado, $asignado, $usuario, $funcionario, $edificio, $unidadFL, $piso, $fechaAsignacion, $fechaBaja, $descripcion, $id]);
     } else {
         $query = "UPDATE $origen SET estado=?, asignado=?, usuario=?, funcionario=?, edificio=?, unidad_fl=?, piso=?, fecha_asignacion=?, fecha_baja=?, descripcion=? WHERE id=?";
         $stmt = $pdo_inv->prepare($query);
